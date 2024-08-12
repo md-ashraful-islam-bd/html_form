@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Navigation</title>
+    <style>
+        .card {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Your form and card elements go here -->
+    <form id="form">
+        <!-- Define all your cards, buttons, and other form elements -->
+        <!-- Example card structure -->
+        <div id="card6" class="card">Card 6 content</div>
+        <div id="card7" class="card">Card 7 content</div>
+        <!-- Add all your card elements similarly -->
+        <button id="prevButton44">Previous</button>
+        <button id="nextButton44">Next</button>
+        <!-- Add all your buttons similarly -->
+        <button id="submitButton">Submit</button>
+        <div id="cardsubmit" class="card">Thank you for your submission!</div>
+        <div id="card80" class="card">Final card content</div>
+    </form>
+
+    <script>
+        // Get all necessary elements
+        const form = document.getElementById('form');
+        const dropdown = document.getElementById('dropdown');
+        const cards = {
+            43: document.getElementById('card43'),
+            44: document.getElementById('card44'),
+            45: document.getElementById('card45'),
+            46: document.getElementById('card46'),
+            47: document.getElementById('card47'),
+            48: document.getElementById('card48'),
+            49: document.getElementById('card49'),
+            50: document.getElementById('card50'),
+            51: document.getElementById('card51'),
+            52: document.getElementById('card52'),
+            53: document.getElementById('card53'),
+            54: document.getElementById('card54'),
+            55: document.getElementById('card55'),
+            56: document.getElementById('card56'),
+            57: document.getElementById('card57'),
+            58: document.getElementById('card58'),
+            59: document.getElementById('card59'),
+            60: document.getElementById('card60'),
+            61: document.getElementById('card61'),
+            62: document.getElementById('card62'),
+            63: document.getElementById('card63'),
+            64: document.getElementById('card64'),
+            65: document.getElementById('card65'),
+            66: document.getElementById('card66'),
+            67: document.getElementById('card67'),
+            68: document.getElementById('card68'),
+            69: document.getElementById('card69'),
+            70: document.getElementById('card70'),
+            71: document.getElementById('card71'),
+            72: document.getElementById('card72'),
+            73: document.getElementById('card73'),
+            74: document.getElementById('card74'),
+            75: document.getElementById('card75'),
+            76: document.getElementById('card76'),
+            77: document.getElementById('card77'),
+            78: document.getElementById('card78'),
+            79: document.getElementById('card79'),
+            80: document.getElementById('card80'),
+            submit: document.getElementById('cardsubmit')
+        };
+
+        const prevButtons = {};
+        const nextButtons = {};
+        const radioButtons = {};
+
+        for (let i = 43; i <= 80; i++) {
+            prevButtons[i] = document.getElementById(`prevButton${i}`);
+            nextButtons[i] = document.getElementById(`nextButton${i}`);
+        }
+
+        function navigate(currentCard, nextCard) {
+            currentCard.style.display = 'none';
+            nextCard.style.display = 'block';
+        }
+
+        function handleConditionalNavigation(cardNumber, trueCard, falseCard) {
+            const yesChecked = document.querySelector(`input[name="CARD${cardNumber}"][value="Yes"]`).checked;
+            const noChecked = document.querySelector(`input[name="CARD${cardNumber}"][value="No"]`).checked;
+
+            if (yesChecked) {
+                navigate(cards[cardNumber], cards[trueCard]);
+            } else if (noChecked) {
+                navigate(cards[cardNumber], cards[falseCard]);
+            } else {
+                alert('Please select an option');
+            }
+        }
+
+        // Event listeners for navigation buttons
+        prevButtons[44].addEventListener('click', () => navigate(cards[44], cards[43]));
+        nextButtons[43].addEventListener('click', () => navigate(cards[43], cards[44]));
+
+        prevButtons[45].addEventListener('click', () => navigate(cards[45], cards[44]));
+        nextButtons[44].addEventListener('click', () => navigate(cards[44], cards[45]));
+
+        prevButtons[46].addEventListener('click', () => navigate(cards[46], cards[45]));
+        nextButtons[45].addEventListener('click', () => navigate(cards[45], cards[46]));
+
+        nextButtons[46].addEventListener('click', () => handleConditionalNavigation(46, 47, 48));
+        prevButtons[47].addEventListener('click', () => navigate(cards[47], cards[46]));
+        nextButtons[47].addEventListener('click', () => navigate(cards[47], cards[48]));
+
+        prevButtons[48].addEventListener('click', () => navigate(cards[48], cards[47]));
+        nextButtons[48].addEventListener('click', () => navigate(cards[48], cards[49]));
+
+        prevButtons[49].addEventListener('click', () => navigate(cards[49], cards[48]));
+        nextButtons[49].addEventListener('click', () => navigate(cards[49], cards[50]));
+
+        prevButtons[50].addEventListener('click', () => navigate(cards[50], cards[49]));
+        nextButtons[50].addEventListener('click', () => navigate(cards[50], cards['submit']));
+
+        prevButtons[51].addEventListener('click', () => navigate(cards[51], cards[6]));
+        nextButtons[51].addEventListener('click', () => navigate(cards[51], cards[52]));
+
+        prevButtons[52].addEventListener('click', () => navigate(cards[52], cards[51]));
+        nextButtons[52].addEventListener('click', () => navigate(cards[52], cards[53]));
+
+        prevButtons[53].addEventListener('click', () => navigate(cards[53], cards[52]));
+        nextButtons[53].addEventListener('click', () => navigate(cards[53], cards[54]));
+
+        prevButtons[54].addEventListener('click', () => navigate(cards[54], cards[53]));
+        nextButtons[54].addEventListener('click', () => navigate(cards[54], cards[55]));
+
+        prevButtons[55].addEventListener('click', () => navigate(cards[55], cards[54]));
+        nextButtons[55].addEventListener('click', () => navigate(cards[55], cards[56]));
+
+        prevButtons[56].addEventListener('click', () => navigate(cards[56], cards[55]));
+        nextButtons[56].addEventListener('click', () => navigate(cards[56], cards[57]));
+
+        prevButtons[57].addEventListener('click', () => navigate(cards[57], cards[56]));
+        nextButtons[57].addEventListener('click', () => navigate(cards[57], cards[58]));
+
+        nextButtons[58].addEventListener('click', () => handleConditionalNavigation(58, 59, 60));
+        prevButtons[59].addEventListener('click', () => navigate(cards[59], cards[58]));
+        nextButtons[59].addEventListener('click', () => navigate(cards[59], cards[60]));
+
+        prevButtons[60].addEventListener('click', () => navigate(cards[60], cards[59]));
+        nextButtons[60].addEventListener('click', () => navigate(cards[60], cards[61]));
+
+        prevButtons[61].addEventListener('click', () => navigate(cards[61], cards[60]));
+        nextButtons[61].addEventListener('click', () => navigate(cards[61], cards[62]));
+
+        prevButtons[62].addEventListener('click', () => navigate(cards[62], cards[61]));
+        nextButtons[62].addEventListener('click', () => navigate(cards[62], cards[63]));
+
+        prevButtons[63].addEventListener('click', () => navigate(cards[63], cards[62]));
+        nextButtons[63].addEventListener('click', () => navigate(cards[63], cards[64]));
+
+        prevButtons[64].addEventListener('click', () => navigate(cards[64], cards[63]));
+        nextButtons[64].addEventListener('click', () => navigate(cards[64], cards[65]));
+
+        prevButtons[65].addEventListener('click', () => navigate(cards[65], cards[64]));
+        nextButtons[65].addEventListener('click', () => navigate(cards[65], cards[66]));
+
+        prevButtons[66].addEventListener('click', () => navigate(cards[66], cards[65]));
+        nextButtons[66].addEventListener('click', () => handleConditionalNavigation(66, 67, 68));
+
+        prevButtons[67].addEventListener('click', () => navigate(cards[67], cards[66]));
+        nextButtons[67].addEventListener('click', () => navigate(cards[67], cards[68]));
+
+        prevButtons[68].addEventListener('click', () => navigate(cards[68], cards[67]));
+        nextButtons[68].addEventListener('click', () => navigate(cards[68], cards[69]));
+
+        prevButtons[69].addEventListener('click', () => navigate(cards[69], cards[68]));
+        nextButtons[69].addEventListener('click', () => navigate(cards[69], cards[70]));
+
+        prevButtons[70].addEventListener('click', () => navigate(cards[70], cards[69]));
+        nextButtons[70].addEventListener('click', () => navigate(cards[70], cards['submit']));
+
+        prevButtons[71].addEventListener('click', () => navigate(cards[71], cards[6]));
+        nextButtons[71].addEventListener('click', () => navigate(cards[71], cards[72]));
+
+        prevButtons[72].addEventListener('click', () => navigate(cards[72], cards[71]));
+        nextButtons[72].addEventListener('click', () => navigate(cards[72], cards[73]));
+
+        prevButtons[73].addEventListener('click', () => navigate(cards[73], cards[72]));
+        nextButtons[73].addEventListener('click', () => navigate(cards[73], cards[74]));
+
+        prevButtons[74].addEventListener('click', () => navigate(cards[74], cards[73]));
+        nextButtons[74].addEventListener('click', () => navigate(cards[74], cards[75]));
+
+        prevButtons[75].addEventListener('click', () => navigate(cards[75], cards[74]));
+        nextButtons[75].addEventListener('click', () => navigate(cards[75], cards[76]));
+
+        prevButtons[76].addEventListener('click', () => navigate(cards[76], cards[75]));
+        nextButtons[76].addEventListener('click', () => navigate(cards[76], cards[77]));
+
+        prevButtons[77].addEventListener('click', () => navigate(cards[77], cards[76]));
+        nextButtons[77].addEventListener('click', () => navigate(cards[77], cards[78]));
+
+        nextButtons[78].addEventListener('click', () => handleConditionalNavigation(78, 79, 'submit'));
+
+        prevButtons[79].addEventListener('click', () => navigate(cards[79], cards[78]));
+        nextButtons[79].addEventListener('click', () => navigate(cards[79], cards['submit']));
+
+        // Special handling for submit button
+        submitButton.addEventListener('click', () => {
+            cards['submit'].style.display = 'none';
+            cards[80].style.display = 'block';
+            form.submit();
+        });
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch('https://script.google.com/macros/s/AKfycbxf-dUwbPuzzGU0hyY4RHJQIg9bGgfxlrsAW2pCMrzAQ-cuqxQ8i_VdwbM2sA7QQ5RzVQ/exec', {
+                method: 'POST',
+                body: new FormData(form)
+            })
+            .then(response => alert("Your response has been received"))
+            .catch(error => console.error('Error!', error.message))
+            .finally(() => window.location.reload());
+        });
+
+        // Initial card display setup
+        cards[6].style.display = 'block';
+    </script>
+</body>
+</html>
