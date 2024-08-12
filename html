@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Navigation</title>
+    <style>
+        .card {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form id="form">
+        <!-- Example Cards with Bangla Text -->
+        <div id="card43" class="card">
+            <p>আপনি কি ছাত্র?</p> <!-- Bangla text for "Are you a student?" -->
+            <label><input type="radio" name="CARD43" id="radioButtonYes43" value="Yes"> হ্যাঁ</label> <!-- Bangla text for "Yes" -->
+            <label><input type="radio" name="CARD43" id="radioButtonNo43" value="No"> না</label> <!-- Bangla text for "No" -->
+            <button id="nextButton43">পরবর্তী</button> <!-- Bangla text for "Next" -->
+        </div>
+
+        <div id="card44" class="card">
+            <p>আপনার বয়স কত?</p> <!-- Bangla text for "How old are you?" -->
+            <input type="number" id="ageInput">
+            <button id="prevButton44">পূর্ববর্তী</button> <!-- Bangla text for "Previous" -->
+            <button id="nextButton44">পরবর্তী</button>
+        </div>
+
+        <div id="card45" class="card">
+            <p>আপনি কি কোন গ্রীষ্মকালীন ক্যাম্পে অংশগ্রহণ করেছেন?</p> <!-- Bangla text for "Have you participated in any summer camp?" -->
+            <label><input type="radio" name="CARD45" id="radioButtonYes45" value="Yes"> হ্যাঁ</label>
+            <label><input type="radio" name="CARD45" id="radioButtonNo45" value="No"> না</label>
+            <button id="prevButton45">পূর্ববর্তী</button>
+            <button id="nextButton45">পরবর্তী</button>
+        </div>
+
+        <!-- Add more cards similarly -->
+
+        <div id="card46" class="card">
+            <p>আপনার কি কোনো বাচ্চা আছে?</p> <!-- Bangla text for "Do you have any children?" -->
+            <label><input type="radio" name="CARD46" value="Yes"> হ্যাঁ</label>
+            <label><input type="radio" name="CARD46" value="No"> না</label>
+            <button id="prevButton46">পূর্ববর্তী</button>
+            <button id="nextButton46">পরবর্তী</button>
+        </div>
+
+        <div id="card47" class="card">
+            <p>আপনার শিশুর বয়স কত?</p> <!-- Bangla text for "How old is your child?" -->
+            <input type="number" id="childAgeInput">
+            <button id="prevButton47">পূর্ববর্তী</button>
+            <button id="nextButton47">পরবর্তী</button>
+        </div>
+
+        <div id="card48" class="card">
+            <p>আপনার শিশুর বিদ্যালয় কোন শ্রেণীতে পড়ছে?</p> <!-- Bangla text for "Which class is your child in school?" -->
+            <input type="text" id="schoolClassInput">
+            <button id="prevButton48">পূর্ববর্তী</button>
+            <button id="nextButton48">পরবর্তী</button>
+        </div>
+
+        <!-- Conditional Questions Start -->
+        <div id="card49" class="card">
+            <p>আপনার কি চাকরি আছে?</p> <!-- Bangla text for "Do you have a job?" -->
+            <label><input type="radio" name="CARD49" id="radioButtonYes49" value="Yes"> হ্যাঁ</label>
+            <label><input type="radio" name="CARD49" id="radioButtonNo49" value="No"> না</label>
+            <button id="prevButton49">পূর্ববর্তী</button>
+            <button id="nextButton49">পরবর্তী</button>
+        </div>
+
+        <div id="card50" class="card">
+            <p>আপনার কর্মক্ষেত্র কি?</p> <!-- Bangla text for "What is your profession?" -->
+            <input type="text" id="professionInput">
+            <button id="prevButton50">পূর্ববর্তী</button>
+            <button id="nextButton50">পরবর্তী</button>
+        </div>
+
+        <!-- Continue for all necessary cards -->
+
+        <div id="cardsubmit" class="card">
+            <p>আপনার প্রতিক্রিয়া গ্রহণ করা হয়েছে!</p> <!-- Bangla text for "Your response has been received!" -->
+        </div>
+
+        <div id="card80" class="card">
+            <p>চূড়ান্ত কার্ড কন্টেন্ট</p> <!-- Bangla text for "Final card content" -->
+        </div>
+
+        <button id="submitButton">জমা দিন</button> <!-- Bangla text for "Submit" -->
+    </form>
+
+    <script>
+        // Navigation for cards
+        document.getElementById('nextButton43').addEventListener('click', () => {
+            if (document.getElementById('radioButtonYes43').checked || document.getElementById('radioButtonNo43').checked) {
+                document.getElementById('card43').style.display = 'none';
+                document.getElementById('card44').style.display = 'block';
+            }
+        });
+
+        document.getElementById('prevButton44').addEventListener('click', () => {
+            document.getElementById('card44').style.display = 'none';
+            document.getElementById('card43').style.display = 'block';
+        });
+
+        document.getElementById('nextButton44').addEventListener('click', () => {
+            if (document.getElementById('radioButtonYes44').checked || document.getElementById('radioButtonNo44').checked) {
+                document.getElementById('card44').style.display = 'none';
+                document.getElementById('card45').style.display = 'block';
+            }
+        });
+
+        // Add similar navigation logic for other cards
+        // Example for conditional logic:
+        document.getElementById('nextButton46').addEventListener('click', () => {
+            if (document.querySelector('input[name="CARD46"][value="Yes"]').checked) {
+                document.getElementById('card46').style.display = 'none';
+                document.getElementById('card47').style.display = 'block';
+            } else if (document.querySelector('input[name="CARD46"][value="No"]').checked) {
+                document.getElementById('card46').style.display = 'none';
+                document.getElementById('card48').style.display = 'block';
+            } else {
+                alert('অনুগ্রহ করে একটি বিকল্প নির্বাচন করুন'); // Bangla text for "Please select an option"
+            }
+        });
+
+        // Handling form submission
+        document.getElementById('submitButton').addEventListener('click', () => {
+            document.getElementById('cardsubmit').style.display = 'none';
+            document.getElementById('card80').style.display = 'block';
+            document.getElementById('form').submit();
+        });
+
+        document.getElementById('form').addEventListener('submit', e => {
+            e.preventDefault();
+            fetch('https://script.google.com/macros/s/AKfycbxf-dUwbPuzzGU0hyY4RHJQIg9bGgfxlrsAW2pCMrzAQ-cuqxQ8i_VdwbM2sA7QQ5RzVQ/exec', {
+                method: 'POST',
+                body: new FormData(document.getElementById('form'))
+            })
+            .then(response => alert("আপনার প্রতিক্রিয়া গ্রহণ করা হয়েছে!")) // Bangla text for "Your response has been received!"
+            .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+</body>
+</html>
